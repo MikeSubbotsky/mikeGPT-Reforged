@@ -21,7 +21,7 @@ const ChatInterface: React.FC = () => {
     setMessages([...messages, { sender: 'user', text: message }]);
       try {
         const response = await axios.post('/api/chat', { message, threadId });
-        console.log('Interface response: ', response.data);
+        //console.log('Interface response: ', response.data);
         const { assistantMessage, newThreadId } = response.data;
         if (newThreadId) setThreadId(newThreadId); // Update threadId if it's new
         setMessages(currentMessages => [...currentMessages, { sender: 'assistant', text: assistantMessage }]);
